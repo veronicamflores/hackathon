@@ -9,10 +9,9 @@ function draw(){
 
 export default class PostController{
     constructor(){
-        this.getPost()
+        this.getPosts()
     }
-        getPost(){
-            debugger
-            store.getPost(draw)
+        getPosts(){
+            store.getPosts(draw)
         }
 }

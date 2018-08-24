@@ -24,12 +24,12 @@ function setState(prop, data) {
 
 export default class Store {
   getPosts(draw) {
-    // fetch('/api/posts/' + state.user._id)
-      // .then(res => res.json())
-      // .then(data => {
-        // setState('posts', data.map(post => new Post(post)))
+    fetch('/api/posts/' + state.user._id)
+      .then(res => res.json())
+      .then(data => {
+        setState('posts', data.map(post => new Post(post)))
         draw()
-      // })
+      })
   }
   login(creds, draw) {
     fetch('/auth/login', {
