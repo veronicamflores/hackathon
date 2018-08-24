@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Comment Wars</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -25,21 +28,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2"><button class="btn btn-danger">Make New Post</button>  </div>
+            <div class="col-2"><button class="btn btn-danger">Make New Post</button> </div>
             <div class="col-2">
-                <div class="dropdown">
-                    <button id="dropdownMenuButton" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By...</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a href="#" class="dropdown-item">Most Recent</a>
-                        <a href="#" class="dropdown-item">Most Popular</a>
-                    </div>
-                </div>
+                <button class="btn">Most Recent</button>
+                <button class="btn">Most Popular</button>
             </div>
         </div>
         <div id="app" class="row"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>  
-    <script src="app/main.js" type="module"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="app/main.js" type="module"></script>
 </body>
+
 </html>

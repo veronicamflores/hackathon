@@ -3,5 +3,6 @@ export default class Post{
         this.description = data.description
         this._id = data._id
         this.imgUrl = data.ImgUrl
+        this.userId = data.userId
     }
 }
