@@ -24,7 +24,7 @@ function setState(prop, data) {
 
 export default class Store {
   getPosts(draw) {
-    fetch('/api/posts/' + state.user._id)
+    storeApi.get('/api/posts/' + state.user._id)
       .then(res => res.json())
       .then(data => {
         setState('posts', data.map(post => new Post(post)))
@@ -32,7 +32,7 @@ export default class Store {
       })
   }
   login(creds, draw) {
-    fetch('/auth/login', {
+    storeApi.post('/auth/login', {
         method: 'post',
         body: JSON.stringify(creds),
         headers: {
