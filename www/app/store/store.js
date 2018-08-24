@@ -32,7 +32,7 @@ export default class Store {
       })
   }
   getComments(draw){
-    storeApi.get('/api/post/' + state.user._id)
+    storeApi.get('/api/posts/' + state.user._id)
     .then(data=>{
       setState('comment', data.data.map(comment => new Comment(comment)))
       draw()

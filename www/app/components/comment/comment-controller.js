@@ -8,5 +8,10 @@ function draw(){
 }
 
 export default class CommentController{
+    constructor(){
 
+    }
+    getComments(){
+        store.getComments(draw)
+    }
 }
