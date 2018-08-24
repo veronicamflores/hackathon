@@ -6,7 +6,7 @@ import Comment from "../models/comment.js";
 let store
 
 const storeApi = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: '//localhost:3000',
     timeout: 3000
 });
 
@@ -26,29 +26,20 @@ function setState(prop, data) {
 export default class Store {
   getPosts(draw) {
     storeApi.get('/api/posts/')
-      .then(res => res.json())
       .then(data => {
-        setState('posts', data.map(post => new Post(post)))
+        setState('posts', data.data.map(post => new Post(post)))
         draw()
       })
   }
   getComments(draw){
     storeApi.get('/api/post/' + state.user._id)
-    .then(res => res.json())
     .then(data=>{
-      setState('comment', data.map(comment => new Comment(comment)))
+      setState('comment', data.data.map(comment => new Comment(comment)))
       draw()
     })
   }
   login(creds, draw) {
-    storeApi.post('/auth/login', {
-        method: 'post',
-        body: JSON.stringify(creds),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      })
-      .then(res => res.json())
+    storeApi.post('/auth/login', creds)
       .then(data => {
         setState('user', new User(data))
         draw()

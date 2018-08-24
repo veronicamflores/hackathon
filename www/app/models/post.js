@@ -9,7 +9,7 @@ export default class Post{
     get listTemplate(){
         return `
         <div class="row">
-            <div class="col-4"><p>${this.userId.username}</p></div>
+            <div class="col-4"><p></p></div>
             <div class="col-1"><button onclick="">X</button></div>
             <div class="col-12"><img src="${this.imgUrl}"/></div>
             <div class="col-12"><h5>${this.description}</h5></div>

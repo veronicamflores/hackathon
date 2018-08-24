@@ -1,7 +1,11 @@
 let router = require('express').Router()
 let Posts = require('../models/post')
 
-
+router.get('/', (req, res, next)=>{
+  Posts.find({})
+  .then(posts => res.send(posts))
+  .catch(next)
+})
 router.get('/by-user/:userId', (req, res, next) => {
   Posts.find({
     userId: req.params.userId
