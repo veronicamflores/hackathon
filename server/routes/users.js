@@ -1,7 +1,7 @@
 let router = require('express').Router()
 let Users = require('../models/user')
 
-router.post('/', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   Users.findOne({
     username: req.body.username,
     pin: req.body.pin
@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
-router.post('/', (req, res, next) => {
+router.post('/register', (req, res, next) => {
   Users.create(req.body).then(user => {
     res.send(user)
   }).catch(next)
