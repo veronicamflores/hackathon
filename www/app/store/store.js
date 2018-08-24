@@ -12,7 +12,7 @@ const storeApi = axios.create({
 //SINGLE SOURCE OF TRUTH
 let state = {
   user: {},
-  posts:[{description: "hjdaskdjsfgajksf", imgUrl:"//placehold.it/200x200"}],
+  activePost:{},
   post: {},
   comment: {},
 }
