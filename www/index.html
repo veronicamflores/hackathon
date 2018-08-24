@@ -12,14 +12,18 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
+        <div>
+            <button onclick="">Test</button>
+        </div>
         <div class="row">
             <div class="col-8"></div>
             <div class="col-4">
-                <form onsubmit="">
+                <form onsubmit="app.controllers.user.login(event)">
                     <div class="form-group">
                         <label for="user">Username</label>
-                        <input type="text" class="form-control" name="user" placeholder="CommentKing">
+                        <input type="text" class="form-control" name="username" placeholder="CommentKing">
                         <label for="user">Password</label>
                         <input type="password" class="form-control" name="pin">
                         <button class="btn" type="submit">Log In</button>

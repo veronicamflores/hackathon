@@ -21,6 +21,7 @@ export default class UserController {
 
   login(e) {
     e.preventDefault();
+    debugger
     let creds = {
       username: e.target.username.value,
       pin: e.target.pin.value
