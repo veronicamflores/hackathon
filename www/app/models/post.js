@@ -15,6 +15,7 @@ export default class Post{
             <div class="col-12"><h5>${this.description}</h5></div>
             <div class="col-4"><button onclick="">COMMENT</button></div>
             <div class="col-2"><button onclick="">YAY</button><button onclick="">NAY</button></div>
-        </div>`
+        </div>
+        <div id="comment"></div>`
     }
 }
