@@ -38,6 +38,18 @@ export default class Store {
       draw()
     })
   }
+
+removePosts(postId, getPosts){
+ storeApi.delete('/api/posts/'+ postId)
+.then(res => {
+  getPosts()
+  
+})
+}
+
+
+
+
   login(creds, draw) {
     storeApi.post('/auth/login', creds)
       .then(data => {

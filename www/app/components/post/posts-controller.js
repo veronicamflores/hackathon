@@ -14,4 +14,9 @@ export default class PostController{
         getPosts(){
             store.getPosts(draw)
         }
+
+        removePosts(postId){
+            debugger
+            store.removePosts(postId, this.getPosts)
+        }
 }
