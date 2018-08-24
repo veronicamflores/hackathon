@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 import Post from "../models/post.js";
+import Comment from "../models/comment.js";
 
 
 let store
@@ -24,12 +25,20 @@ function setState(prop, data) {
 
 export default class Store {
   getPosts(draw) {
-    storeApi.get('/api/posts/' + state.user._id)
+    storeApi.get('/api/posts/')
       .then(res => res.json())
       .then(data => {
         setState('posts', data.map(post => new Post(post)))
         draw()
       })
+  }
+  getComments(draw){
+    storeApi.get('/api/post/' + state.user._id)
+    .then(res => res.json())
+    .then(data=>{
+      setState('comment', data.map(comment => new Comment(comment)))
+      draw()
+    })
   }
   login(creds, draw) {
     storeApi.post('/auth/login', {
