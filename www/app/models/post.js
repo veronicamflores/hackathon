@@ -13,7 +13,7 @@ export default class Post{
             <div class="col-1"><button onclick="app.controllers.post.removePosts('${this._id}')">Delete</button></div>
             <div class="col-12"><img src="${this.imgUrl}"/></div>
             <div class="col-12"><h5>${this.description}</h5></div>
-            <div class="col-4"><button onclick="app.controllers.posts.setActive(${this._id})">View Comments</button></div>
+            <div class="col-4"><button onclick="app.controllers.posts.setActive('${this._id}')">View Comments</button></div>
             <div class="col-4"><button onclick="">COMMENT</button></div>
             <div class="col-2"><button onclick="">YAY</button><button onclick="">NAY</button></div>
         </div>`

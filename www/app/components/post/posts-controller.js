@@ -17,7 +17,6 @@ export default class PostController{
         }
 
         removePosts(postId){
-            debugger
             store.removePosts(postId, this.getPosts)
         }
 }

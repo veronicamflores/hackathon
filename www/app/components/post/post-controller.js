@@ -3,9 +3,7 @@ import Store from "../../store/store.js";
 let store = new Store()
 
 function draw(){
-    template = ""
-    store.state.activeState.forEach(post => template += post.DetailTemplate)
-    document.getElementById('app').innerHTML = template
+    document.getElementById('app').innerHTML = store.state.activePost.detailTemplate
 }
 
 export default class PostsController{
