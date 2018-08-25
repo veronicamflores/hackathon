@@ -35,17 +35,17 @@ export default class Store {
     storeApi.get('/api/posts/'+id)
     .then(data =>{
       console.log(data)
-      setState('activePost', data.data.map(post=> new Post(post)))
+      setState('activePost', new Post(data.data))
       draw()
     })
   }
-  getComments(draw){
-    storeApi.get('/api/posts/' + state.user._id)
-    .then(data=>{
-      setState('comment', data.data.map(comment => new Comment(comment)))
-      draw()
-    })
-  }
+  // getComments(draw){
+  //   storeApi.get('/api/posts/' + state.user._id)
+  //   .then(data=>{
+  //     setState('comment', data.data.map(comment => new Comment(comment)))
+  //     draw()
+  //   })
+  // }
 
 editPosts(postId, getPosts){
   storeApi.put('/api/posts/'+ postId)
