@@ -28,6 +28,7 @@ export default class Store {
     storeApi.get('/api/posts/')
       .then(data => {
         let posts = data.data.map(post => new Post(post))
+        state.posts = {}
         posts.forEach(post=>{
           state.posts[post._id] = post
         })
@@ -57,10 +58,10 @@ export default class Store {
       })
   }
 
-  removePosts(postId, getPosts) {
+  removePosts(postId, callback) {
     storeApi.delete('/api/posts/' + postId)
       .then(res => {
-        getPosts()
+        callback()
 
       })
   }
@@ -70,7 +71,9 @@ export default class Store {
       .then(data => {
         let comments = data.data.map(comment => new Comment(comment))
         comments.forEach(comment=>{
-          state.posts[comment.postId].comments.push(comment)
+          if(state.posts[comment.postId]){
+            state.posts[comment.postId].comments.push(comment)
+          }
         })
         draw()
       })

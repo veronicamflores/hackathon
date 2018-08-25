@@ -37,7 +37,6 @@ export default class PostsController{
             store.createPost(creds, this.getPosts)
         }
         editPosts(postId){
-            debugger
             store.editPosts(postId, this.getPosts)
         }
 
