@@ -14,6 +14,13 @@ router.get('/by-user/:userId', (req, res, next) => {
   }).catch(next)
 })
 
+router.get('/:id', (req, res, next)=>{
+  Posts.findById(req.params.id)
+    .then(post=>{
+      res.send(post)
+    })
+})
+
 router.post('/', (req, res, next) => {
   Posts.create(req.body)
     .then(post => {

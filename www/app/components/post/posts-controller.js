@@ -1,4 +1,5 @@
-import Store from '../../store/store.js'
+import Store from "../../store/store.js";
+
 
 let store = new Store
 function draw(){

@@ -31,6 +31,14 @@ export default class Store {
         draw()
       })
   }
+  getActivePost(draw, id){
+    storeApi.get('/api/posts/'+id)
+    .then(data =>{
+      console.log(data)
+      setState('activePost', data.data.map(post=> new Post(post)))
+      draw()
+    })
+  }
   getComments(draw){
     storeApi.get('/api/posts/' + state.user._id)
     .then(data=>{
