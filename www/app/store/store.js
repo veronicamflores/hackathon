@@ -47,6 +47,13 @@ export default class Store {
     })
   }
 
+editPosts(postId, getPosts){
+  storeApi.put('/api/posts/'+ postId)
+  .then(res => {
+    getPosts()
+  })
+}
+
 removePosts(postId, getPosts){
  storeApi.delete('/api/posts/'+ postId)
 .then(res => {

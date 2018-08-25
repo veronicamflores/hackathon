@@ -38,7 +38,8 @@ router.delete('/:id', (req, res, next) => {
   Posts.findByIdAndRemove(req.params.id)
     .then(() => res.send({
       message: 'It worked'
-    })).catch(next)
+    }))
+    .catch(next)
 })
 
 

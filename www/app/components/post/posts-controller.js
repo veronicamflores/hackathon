@@ -16,8 +16,12 @@ export default class PostController{
             store.getPosts(draw)
         }
 
-        removePosts(postId){
+        editPosts(postId){
             debugger
+            store.editPosts(postId, this.getPosts)
+        }
+
+        removePosts(postId){
             store.removePosts(postId, this.getPosts)
         }
 }

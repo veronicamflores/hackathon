@@ -10,6 +10,7 @@ export default class Post{
         return `
         <div class="row">
             <div class="col-4"><p></p></div>
+            <div class="col-1"><button onclick="app.controllers.post.editPosts('${this._id}')">Edit</button></div>
             <div class="col-1"><button onclick="app.controllers.post.removePosts('${this._id}')">Delete</button></div>
             <div class="col-12"><img src="${this.imgUrl}"/></div>
             <div class="col-12"><h5>${this.description}</h5></div>
@@ -22,6 +23,7 @@ export default class Post{
         return `
         <div class="row">
             <div class="col-4"><p>${this.userId.username}</p></div>
+            <div class="col-1"><button onclick="app.controllers.post.editPosts('${this._id}')">Edit</button></div>
             <div class="col-1"><button onclick="app.controllers.post.removePosts('${this._id}')">Delete</button></div>
             <div class="col-12"><img src="${this.imgUrl}"/></div>
             <div class="col-12"><h5>${this.description}</h5></div>
