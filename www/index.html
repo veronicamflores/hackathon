@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comment Wars</title>
+    <title>COMMENT WAR</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
@@ -19,24 +19,39 @@
                 <img class="img-fluid" src="assets/IMG-0136.PNG" alt="">
             </div>
             <div class="col-4">
-                <form onsubmit="app.controllers.user.login(event)">
+                <form onsubmit="app.controllers.user.login(event, app.controllers.posts.getPosts)">
                     <div class="form-group">
-                        <label for="user">Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="CommentKing">
-                        <label for="user">Password</label>
+                        <label for="user">USERNAME</label>
+                        <input type="text" class="form-control" name="username" placeholder="COMMENTKING">
+                        <label for="user">PASSWORD</label>
                         <input type="password" class="form-control" name="pin">
-                        <button class="btn" type="submit">Log In</button>
+                        <button class="btn" type="submit">LOG IN</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <div class="col-2"><button class="btn btn-danger">Make New Post</button> </div>
+            <div class="col-3"><button class="btn btn-danger" onclick="app.controllers.posts.toggleHidden()">MAKE NEW POST</button></div>
+            <div id="create-post" class="col-4" >
+                <form onsubmit="app.controllers.posts.createPost(event)">
+                    <div class="form-group">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" class="form-control" name="description" placeholder="PUT SOMETHING HEEEERREE">
+                        <label for="imgUrl">IMAGE</label>
+                        <input type="url" class="form-control" name="imgUrl">
+                        <label for="userId">USER ID</label>
+                        <input type="text" class="form-control" name="userId">
+                        <button class="btn" type="submit">CREATE POST</button>
+                    </div>
+                </form>
+            </div>
             <div class="col-2">
-                <button class="btn">Most Recent</button>
-                <button class="btn">Most Popular</button>
+                <button class="btn">SORT BY MOST RECENT</button>
+                <button class="btn">SORT BY MOST POPULAR</button>
             </div>
         </div>
+    </div>
+    <div class="container-fluid">
         <div id="app" class="row"></div>
     </div>
 

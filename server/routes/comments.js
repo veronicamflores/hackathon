@@ -2,10 +2,9 @@ let router = require('express').Router()
 let Comments = require('../models/comment')
 
 
-router.get('/by-user/:userId', (req, res, next) => {
-  Comments.find({
-    userId: req.params.userId
-  }).then(clist => {
+router.get('/', (req, res, next) => {
+  Comments.find({})
+  .then(clist => {
     res.send(clist)
   }).catch(next)
 })

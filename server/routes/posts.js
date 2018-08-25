@@ -21,7 +21,14 @@ router.get('/:id', (req, res, next)=>{
     })
     .catch(next)
 })
-
+router.get('/:postId/comments', (req, res, next)=>{
+  debugger
+  Comments.findById(req.params.postId)
+  .then(comment=>{
+    res.send(comment)
+  })
+  .catch(next)
+})
 router.post('/', (req, res, next) => {
   Posts.create(req.body)
     .then(post => {

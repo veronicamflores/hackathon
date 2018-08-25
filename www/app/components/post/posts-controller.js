@@ -4,18 +4,38 @@ import Store from "../../store/store.js";
 let store = new Store
 function draw(){
     let template =""
-    store.state.posts.forEach(post => template += post.listTemplate)
+    let posts = store.state.posts
+    for(let postId in posts){
+        template += posts[postId].listTemplate
+    }
     document.getElementById('app').innerHTML = template
 }
 
-export default class PostController{
+export default class PostsController{
     constructor(){
         this.getPosts()
     }
         getPosts(){
             store.getPosts(draw)
         }
-
+        toggleHidden(){
+            let toggle = document.getElementById('create-post')
+            if(toggle.style.visibility === 'hidden'){
+                toggle.style.visibility = 'visible'
+            }
+            else{
+                toggle.style.visibility = 'hidden'
+            }
+        }
+        createPost(event){
+            event.preventDefault()
+            let creds = {
+                description: event.target.description.value,
+                imgUrl: event.target.imgUrl.value,
+                userId: event.target.userId.value
+            }
+            store.createPost(creds, this.getPosts)
+        }
         editPosts(postId){
             debugger
             store.editPosts(postId, this.getPosts)

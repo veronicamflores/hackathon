@@ -15,7 +15,7 @@ let state = {
   user: {},
   activePost: {},
   post: {},
-  comment: {},
+  posts: {},
 }
 
 function setState(prop, data) {
@@ -27,8 +27,11 @@ export default class Store {
   getPosts(draw) {
     storeApi.get('/api/posts/')
       .then(data => {
-        setState('posts', data.data.map(post => new Post(post)))
-        draw()
+        let posts = data.data.map(post => new Post(post))
+        posts.forEach(post=>{
+          state.posts[post._id] = post
+        })
+        this.getComments(draw)
       })
   }
   getActivePost(draw, id) {
@@ -39,7 +42,14 @@ export default class Store {
         draw()
       })
   }
+  createPost(creds, getPosts){
+    storeApi.post('api/posts/', creds)
+    .then(res =>{
+      console.log(res.data)
+      getPosts(res.data)
+    })
 
+  }
   editPosts(postId, getPosts) {
     storeApi.put('/api/posts/' + postId)
       .then(res => {
@@ -56,9 +66,12 @@ export default class Store {
   }
 
   getComments(draw) {
-    storeApi.get('/api/comments/' + state.user._id)
+    storeApi.get('/api/comments/')
       .then(data => {
-        setState('comment', data.data.map(comment => new Comment(comment)))
+        let comments = data.data.map(comment => new Comment(comment))
+        comments.forEach(comment=>{
+          state.posts[comment.postId].comments.push(comment)
+        })
         draw()
       })
   }
@@ -73,11 +86,11 @@ export default class Store {
 
 
 
-  login(creds, draw) {
+  login(creds, callback) {
     storeApi.post('/auth/login', creds)
       .then(data => {
         setState('user', new User(data))
-        draw(this.getPosts)
+        callback()
       })
       .catch(console.error)
   }

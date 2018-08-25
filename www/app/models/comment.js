@@ -8,7 +8,6 @@ export default class Comment{
     }
     get listTemplate(){
         return `
-        <div class="col-4">${this.userId.username}</div>
         <div class="col-1"><button onclick="">X</button></div>
         <div class="col-6"><img src="${this.imgUrl}"/></div>
         <div class="col-6"><h5>${this.description}</h5></div>

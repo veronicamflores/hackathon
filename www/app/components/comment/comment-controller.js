@@ -11,7 +11,12 @@ export default class CommentController{
     constructor(){
 
     }
-    getComments(){
-        store.getComments(draw)
+    drawComments(postId){
+        let comments = store.state.posts[postId].comments
+        let template = ''
+        comments.forEach(comment=>{
+            template += comment.listTemplate
+        })
+        document.getElementById('comments-'+postId).innerHTML = template + 'COMMENTS!! MARK RULES!!'
     }
 }
