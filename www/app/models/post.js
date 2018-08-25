@@ -2,7 +2,9 @@ export default class Post{
     constructor(data){
         this.description = data.description
         this._id = data._id
-        this.imgUrl = data.ImgUrl
+        if(data.imgUrl.includes('http:')){
+            this.imgUrl =  data.ImgUrl
+        } else(this.imgUrl = 'http:' + data.imgUrl)
         this.userId = data.userId
     }
 
