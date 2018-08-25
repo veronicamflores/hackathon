@@ -19,4 +19,13 @@ export default class CommentController{
         })
         document.getElementById('comments-'+postId).innerHTML = template + 'COMMENTS!! MARK RULES!!'
     }
+    removeComment(){
+
+    }
+    editComment(){
+
+    }
+    createComment(){
+        
+    }
 }

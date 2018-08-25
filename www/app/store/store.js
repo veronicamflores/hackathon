@@ -51,8 +51,8 @@ export default class Store {
     })
 
   }
-  editPosts(postId, getPosts) {
-    storeApi.put('/api/posts/' + postId)
+  editPosts(postId, getPosts, creds) {
+    storeApi.put('/api/posts/' + postId, creds)
       .then(res => {
         getPosts()
       })

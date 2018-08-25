@@ -36,8 +36,14 @@ export default class PostsController{
             }
             store.createPost(creds, this.getPosts)
         }
-        editPosts(postId){
-            store.editPosts(postId, this.getPosts)
+        editPosts(event, postId){
+            event.preventDefault()
+            let creds = {
+                description: event.target.description.value,
+                imgUrl: event.target.imgUrl.value,
+                userId: event.target.userId.value
+            }
+            store.editPosts(postId, this.getPosts, creds)
         }
 
         removePosts(postId){
