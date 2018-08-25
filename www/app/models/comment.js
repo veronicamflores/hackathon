@@ -8,7 +8,7 @@ export default class Comment{
     }
     get listTemplate(){
         return `
-        <div class="col-1"><button onclick="">X</button></div>
+        <div class="col-1"><button onclick="app.controllers.posts.deleteComment('${this._id}')">X</button></div>
         <div class="col-6"><img src="${this.imgUrl}"/></div>
         <div class="col-6"><h5>${this.description}</h5></div>
         <div class="col-2"><button onclick="">YAY</button><button onclick="">NAY</button></div>

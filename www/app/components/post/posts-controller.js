@@ -58,6 +58,8 @@ export default class PostsController{
                 postId: postId
             }
             store.createComment(creds, postId, this.getPosts)
-    
+        }
+        deleteComment(commentId){
+            store.deleteComment(commentId, this.getPosts)
         }
 }

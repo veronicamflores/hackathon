@@ -85,7 +85,12 @@ export default class Store {
       draw()
     })
   }
-  deleteComment()
+  deleteComment(commentId, draw){
+    storeApi.delete('api/comments/' + commentId)
+    .then(res=>{
+      draw()
+    })
+  }
 
   postComment(postId, getComments) {
     storeApi.post('/api/comments/' + postId)
