@@ -32,7 +32,20 @@ export default class Post{
             <div class="col-12"><img src="${this.imgUrl}"/></div>
             <div class="col-12"><h5>${this.description}</h5></div>
             <div class="col-4"><button onclick="app.controllers.comment.drawComments('${this._id}')">View Comments</button></div>
-            <div class="col-4"><button onclick="app.controllers.comment.postcomments(${this._id})">COMMENT</button></div>
+            <div class="col-4"><button onclick="app.controllers.comment.createComment()">COMMENT</button></div>
+            <div id="create-post" class="col-4" >
+                <form onsubmit="app.controllers.posts.createComment(event, '${this._id}')">
+                    <div class="form-group">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" class="form-control" name="description" placeholder="PUT SOMETHING HEEEERREE">
+                        <label for="imgUrl">IMAGE</label>
+                        <input type="url" class="form-control" name="imgUrl">
+                        <label for="userId">USER ID</label>
+                        <input type="text" class="form-control" name="userId">
+                        <button class="btn" type="submit">CREATE COMMENT</button>
+                    </div>
+                </form>
+            </div>
             <div id="comments-${this._id}"></div>
             <div class="col-2"><button onclick="">YAY</button><button onclick="">NAY</button></div>
         </div>`

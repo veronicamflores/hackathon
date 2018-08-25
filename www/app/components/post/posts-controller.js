@@ -49,4 +49,15 @@ export default class PostsController{
         removePosts(postId){
             store.removePosts(postId, this.getPosts)
         }
+        createComment(event, postId){
+            event.preventDefault()
+            let creds = {
+                description: event.target.description.value,
+                imgUrl:event.target.imgUrl.value,
+                userId:event.target.userId.value,
+                postId: postId
+            }
+            store.createComment(creds, postId, this.getPosts)
+    
+        }
 }

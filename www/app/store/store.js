@@ -79,6 +79,14 @@ export default class Store {
       })
   }
 
+  createComment(creds, postId, draw){
+    storeApi.post('api/comments/', creds)
+    .then(res =>{
+      draw()
+    })
+  }
+  deleteComment()
+
   postComment(postId, getComments) {
     storeApi.post('/api/comments/' + postId)
       .then(data => {

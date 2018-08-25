@@ -25,7 +25,15 @@ export default class CommentController{
     editComment(){
 
     }
-    createComment(){
-        
+    createComment(event, postId){
+        event.preventDefault()
+        let creds = {
+            description: event.target.description.value,
+            imgUrl:event.target.imgUrl.value,
+            userId:event.target.userId.value,
+            postId: postId
+        }
+        store.createComment(creds, postId, this.drawComments)
+
     }
 }
