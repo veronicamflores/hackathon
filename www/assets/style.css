@@ -1,6 +1,7 @@
-/* body{
-    background-image: url(IMG-0138.PNG);
+body{
+    background-image: url('https://img.clipartxtras.com/497ac8527cff9ac02f9ecae6436f64a6_morning-clipart-landscape-background-pencil-and-in-color-morning-playground-clipart-background_1920-1200.png');
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-} */
+    background-position: center;
+    background-attachment: fixed;
+}
