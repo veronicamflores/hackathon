@@ -6,14 +6,14 @@ import Comment from "../models/comment.js";
 let store
 
 const storeApi = axios.create({
-    baseURL: '//localhost:3000',
-    timeout: 3000
+  baseURL: '//localhost:3000',
+  timeout: 3000
 });
 
 //SINGLE SOURCE OF TRUTH
 let state = {
   user: {},
-  activePost:{},
+  activePost: {},
   post: {},
   comment: {},
 }
@@ -31,37 +31,45 @@ export default class Store {
         draw()
       })
   }
-  getActivePost(draw, id){
-    storeApi.get('/api/posts/'+id)
-    .then(data =>{
-      console.log(data)
-      setState('activePost', new Post(data.data))
-      draw()
-    })
+  getActivePost(draw, id) {
+    storeApi.get('/api/posts/' + id)
+      .then(data => {
+        console.log(data)
+        setState('activePost', new Post(data.data))
+        draw()
+      })
   }
-  // getComments(draw){
-  //   storeApi.get('/api/posts/' + state.user._id)
-  //   .then(data=>{
-  //     setState('comment', data.data.map(comment => new Comment(comment)))
-  //     draw()
-  //   })
-  // }
 
-editPosts(postId, getPosts){
-  storeApi.put('/api/posts/'+ postId)
-  .then(res => {
-    getPosts()
-  })
-}
+  editPosts(postId, getPosts) {
+    storeApi.put('/api/posts/' + postId)
+      .then(res => {
+        getPosts()
+      })
+  }
 
-removePosts(postId, getPosts){
- storeApi.delete('/api/posts/'+ postId)
-.then(res => {
-  getPosts()
-  
-})
-}
+  removePosts(postId, getPosts) {
+    storeApi.delete('/api/posts/' + postId)
+      .then(res => {
+        getPosts()
 
+      })
+  }
+
+  getComments(draw) {
+    storeApi.get('/api/comments/' + state.user._id)
+      .then(data => {
+        setState('comment', data.data.map(comment => new Comment(comment)))
+        draw()
+      })
+  }
+
+  postComment(postId, getComments) {
+    storeApi.post('/api/comments/' + postId)
+      .then(data => {
+        setState('comment', data.data.map(comment => new Comment(comment)))
+        getComments()
+      })
+  }
 
 
 
@@ -69,7 +77,7 @@ removePosts(postId, getPosts){
     storeApi.post('/auth/login', creds)
       .then(data => {
         setState('user', new User(data))
-        draw()
+        draw(this.getPosts)
       })
       .catch(console.error)
   }
